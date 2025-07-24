@@ -8,6 +8,10 @@ import { RoutesContext } from './assets/context/RoutesContext';
 import { ToastContainer } from 'react-toastify';
 
 
+// ---------------- PAGES
+import { RoutesContext } from './assets/context/RoutesContext';
+
+
 function App() {
   
     const navigate = useNavigate();
