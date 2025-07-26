@@ -3,7 +3,8 @@ export const emailValidate = (input) => {
         return `Email is empty.`
     }
     else {
-        if(input.includes("@") && (input.includes(".com") || input.includes(".org") || input.includes(".net") || input.includes(".gov"))) {
+        const validRule = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if(input.match(validRule)) {
             return true
         }
         else {

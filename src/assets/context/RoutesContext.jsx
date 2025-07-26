@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import Login from "../../pages/Login";
+import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import Dashboard from "../../pages/Dashboard";
 

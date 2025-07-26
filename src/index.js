@@ -6,16 +6,25 @@ import reportWebVitals from './reportWebVitals';
 import { HashRouter } from 'react-router-dom';
 import RoutesContextProvider from './assets/context/RoutesContext';
 import StatusContextProvider from './assets/context/StatusContext';
+import { ClerkProvider } from '@clerk/clerk-react'
+
+const PUBLISHABLE_KEY = process.env.REACT_APP_KEY
+
+if (!PUBLISHABLE_KEY) {
+  throw new Error('Add your Clerk Publishable Key to the .env file')
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <HashRouter>
-    <RoutesContextProvider>
-      <StatusContextProvider>
-        <App />
-      </StatusContextProvider>
-    </RoutesContextProvider>
-  </HashRouter>
+  <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+    <HashRouter>
+      <RoutesContextProvider>
+        <StatusContextProvider>
+          <App />
+        </StatusContextProvider>
+      </RoutesContextProvider>
+    </HashRouter>
+  </ClerkProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
