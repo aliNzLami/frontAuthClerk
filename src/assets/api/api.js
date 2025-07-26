@@ -15,16 +15,3 @@ export const organiseList_auth = (list, authType) => {
     }
     return data;
 }
-
-export const organiseList_profile = (list) => {
-    const data = {};
-    for(let item of list) {
-        if(item.name === 'emailAddress') {
-            data['emailAddresses'] =  item.value;
-        }
-        else {
-            data[item.name] = item.value
-        }
-    }
-    return data;
-}
