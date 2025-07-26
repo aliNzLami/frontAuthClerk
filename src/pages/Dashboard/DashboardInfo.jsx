@@ -1,6 +1,6 @@
-import React, { useContext, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
-import { useClerk, useUser  } from '@clerk/clerk-react';
+import React, { useState } from 'react'
+import { Link } from 'react-router';
+import { useClerk  } from '@clerk/clerk-react';
 
 // ---------------- components
 import { Button, Flex, Form, Input, Typography, Spin } from 'antd'

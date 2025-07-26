@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router';
 
 // ---------------- helpers
 import { emailValidate, passwordValidate } from '../../assets/helpers/validation';
@@ -16,7 +16,7 @@ import { toast } from 'react-toastify';
 function LoginForm() {
         const { signIn } = useSignIn();
 
-        const { authRoutes, pagesList } = useContext(RoutesContext);
+        const { authRoutes } = useContext(RoutesContext) || {};
         const [isSent, setIsSent] = useState(false);
     
         const [formItems, setFormItems] = useState(
@@ -142,7 +142,7 @@ function LoginForm() {
                     </Form.Item>
 
                     <Form.Item>
-                        <Link to={authRoutes.register.url}>
+                        <Link to={authRoutes?.register?.url??""}>
                             <Button size='large' className='btnLink'>
                                 Sign Up
                             </Button>

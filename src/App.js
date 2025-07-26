@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router';
 import { useUser } from '@clerk/clerk-react';
 import './App.css';
 import { Spin } from 'antd';
@@ -13,7 +13,7 @@ function App() {
     const navigate = useNavigate();
     const { isSignedIn } = useUser();
     // ---------------------------- Context ---------------------------- //
-    const { authRoutes, pagesList } = useContext(RoutesContext);
+    const { authRoutes, pagesList } = useContext(RoutesContext) || {};
 
     // ---------------------------- Functions ---------------------------- //
     const loadPage = () => {
