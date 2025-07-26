@@ -5,12 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { HashRouter } from 'react-router-dom';
 import RoutesContextProvider from './assets/context/RoutesContext';
+import StatusContextProvider from './assets/context/StatusContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <HashRouter>
     <RoutesContextProvider>
-      <App />
+      <StatusContextProvider>
+        <App />
+      </StatusContextProvider>
     </RoutesContextProvider>
   </HashRouter>
 );

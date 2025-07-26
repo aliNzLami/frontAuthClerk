@@ -1,7 +1,177 @@
 
+/* ------------------------------ GENERAL ------------------------------ */
+
+:root {
+    --main-dark: rgb(19, 20, 24);
+    --main-black: rgb(19, 16, 20);
+    --main-gray: rgb(28, 31, 36);
+    --main-brown: rgb(142, 122, 111);
+}
+
+h1, h2, h3, label, button, strong {
+    color: var(--main-brown) !important;
+}
+
+input {
+    background-color: transparent !important;
+    border: 1px solid var(--main-brown) !important;
+    color: white !important;
+}
+
+input::placeholder {
+    color: var(--main-brown) !important;
+    opacity: 0.5;
+}
+
 body {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-color: var(--main-dark);
+}
+
+@media (max-width: 940px) {
+    body {
+        padding: 0 50px;
+    }
+}
+
+/* ------------------------------ ANIMATION ------------------------------ */
+
+.showSmoothly {
+    opacity: 0;
+    animation: slideIn_noMove 3s forwards;
+}
+
+.showSmoothly_toLeft {
+    transform: translateX(100%);
+    opacity: 0;
+    animation: slideIn_right_to_left 1s forwards;
+}
+
+@keyframes slideIn_noMove {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
+@keyframes slideIn_right_to_left {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+}
+
+/* ------------------------------ GENRAL ------------------------------ */
+
+.btnSubmit, .btnLink {
+    width: 100%;
+}
+
+.btnSubmit {
+    background-color: var(--main-gray);
+    border-color: var(--main-brown);
+    font-weight: bold;
+}
+
+.btnSubmit:hover, .btnLink:hover, .btnLink:active, .btnSubmit:active {
+    background-color: var(--main-dark) !important;
+    border-color: var(--main-brown) !important;
+}
+
+.btnLink {
+    background-color: transparent;
+    border: none;
+    border-top: 1px solid var(--main-brown);
+    border-radius: 0;
+}
+
+.form-container {
+    width: 1000px;
+    background-color: var(--main-black);
+    border: none;
+}
+
+@media (max-width: 1027px) {
+    .form-container {
+        width: 80vw;
+    }
+}
+
+@media (max-width: 500px) {
+    .form-container {
+        width: 93vw;
+    }
+}
+
+.formAuthHolder, .formImgHolder {
+    width: 50%;
+}
+
+.title, .slogan {
+    text-align: center;
+}
+
+@media (max-width: 470px) {
+    .title {
+        margin-top: 6px;
+        margin-bottom: 3px !important;
+    }
+    .slogan {
+        margin-bottom: 15px;
+    }
+}
+
+.authImg {
+    width: 100%;
+}
+
+.authImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardHolder {
+    gap: 30px;
+}
+
+@media (max-width: 990px) {
+    .cardHolder {
+        flex-direction: column-reverse;
+        gap: 0;
+    }
+
+    .authImg {
+        width: 250px;
+        height: 250px;
+    }
+
+    .formAuthHolder, .formImgHolder {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-height: 780px) and (max-width: 800px) {
+    .authImg {
+        width: 100px;
+        height: 100px;
+    }
+
+    .formImgHolder {
+        padding-top: 15px;
+    }
+}
+
+.error-text {
+    color: red;
 }

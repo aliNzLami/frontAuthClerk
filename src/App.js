@@ -1,14 +1,39 @@
-import React, { useContext } from 'react';
-import { HashRouter, Router, Route, Routes } from 'react-router-dom';
+import React, { useContext, useEffect } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 
-// ---------------- PAGES
+// ---------------- context
 import { RoutesContext } from './assets/context/RoutesContext';
+import { StatusContext } from './assets/context/StatusContext';
 
 
 function App() {
   
+    const navigate = useNavigate();
+
+    // ---------------------------- Context ---------------------------- //
     const routesList = useContext(RoutesContext);
+    const { status, prepareStatus } = useContext(StatusContext);
+
+
+    // ---------------------------- Functions ---------------------------- //
+    const loadPage = () => {
+      if(status === null) {
+        // loading
+      }
+      else {
+        Object.keys(status).length ? navigate(routesList.dashboard.url) : navigate(routesList.register.url)
+      }
+    }
+
+    // ---------------------------- Effects ---------------------------- //
+    useEffect(() => {
+      prepareStatus();
+    }, [])
+
+    useEffect(() => {
+      loadPage()
+    }, [status])
     
     return (
       <>
