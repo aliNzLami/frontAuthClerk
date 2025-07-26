@@ -123,6 +123,12 @@ body {
     text-align: center;
 }
 
+.slogan a {
+    color: var(--main-brown);
+    margin-bottom: 20px;
+    display: block;
+}
+
 @media (max-width: 470px) {
     .title {
         margin-top: 6px;

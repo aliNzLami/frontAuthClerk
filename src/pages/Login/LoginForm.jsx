@@ -15,9 +15,8 @@ import { toast } from 'react-toastify';
 
 function LoginForm() {
         const { signIn } = useSignIn();
-        const navigate = useNavigate();
 
-        const routesList = useContext(RoutesContext);
+        const { authRoutes, pagesList } = useContext(RoutesContext);
         const [isSent, setIsSent] = useState(false);
     
         const [formItems, setFormItems] = useState(
@@ -92,8 +91,8 @@ function LoginForm() {
                         toast.error(msg.status);
                         setIsSent(false);
                     }
-                    navigate(routesList.dashboard.url);
                     toast.success('Welcome.');
+                    window.location.reload()
                 })
             } catch (error) {
                 toast.error('Error occurred.');
@@ -104,54 +103,54 @@ function LoginForm() {
 
     return (
         <div className="formAuthHolder showSmoothly">
-                    <Flex vertical flex={1}>
-                        <Typography.Title level={3} strong className='title'>
-                            Login
-                        </Typography.Title>
-                        <Typography.Text type='secondary' strong className='slogan'>
-                            Unlock Your World!
-                        </Typography.Text>
-        
-                        <Form layout='vertical' autoComplete='off'>
-                            {
-                                formItems.map((item, index) => {
-                                    return (
-                                        <Form.Item key={item.name} label={item.label}>
-                                            <Input 
-                                                placeholder={item.placeholder} 
-                                                required={item.required} 
-                                                type={item.type ? item.type : 'text'} 
-                                                onChange={(e) => onChangeHandler({key: item.name, value: e.target.value, index})}
-                                                size='large'
-                                                defaultValue={item.value}
-                                                disabled={isSent}
-                                            />
-                                            {
-                                                item.error &&
-                                                <p className='error-text'>
-                                                    { item.error }
-                                                </p> 
-                                            }
-                                        </Form.Item>
-                                    )
-                                })
-                            }
-                            <Form.Item>
-                                <Button type='primary' size='large' className='btnSubmit' disabled={isSent}  onClick={onFinishHandle}>
-                                    { isSent ? <Spin /> : "Login" }
-                                </Button>
-                            </Form.Item>
-        
-                            <Form.Item>
-                                <Link to={routesList.register.url}>
-                                    <Button size='large' className='btnLink'>
-                                        Sign Up
-                                    </Button>
-                                </Link>
-                            </Form.Item>
-                        </Form>
-                    </Flex>
-                </div>
+            <Flex vertical flex={1}>
+                <Typography.Title level={3} strong className='title'>
+                    Login
+                </Typography.Title>
+                <Typography.Text type='secondary' strong className='slogan'>
+                    Unlock Your World!
+                </Typography.Text>
+
+                <Form layout='vertical' autoComplete='off'>
+                    {
+                        formItems.map((item, index) => {
+                            return (
+                                <Form.Item key={item.name} label={item.label}>
+                                    <Input 
+                                        placeholder={item.placeholder} 
+                                        required={item.required} 
+                                        type={item.type ? item.type : 'text'} 
+                                        onChange={(e) => onChangeHandler({key: item.name, value: e.target.value, index})}
+                                        size='large'
+                                        defaultValue={item.value}
+                                        disabled={isSent}
+                                    />
+                                    {
+                                        item.error &&
+                                        <p className='error-text'>
+                                            { item.error }
+                                        </p> 
+                                    }
+                                </Form.Item>
+                            )
+                        })
+                    }
+                    <Form.Item>
+                        <Button type='primary' size='large' className='btnSubmit' disabled={isSent}  onClick={onFinishHandle}>
+                            { isSent ? <Spin /> : "Login" }
+                        </Button>
+                    </Form.Item>
+
+                    <Form.Item>
+                        <Link to={authRoutes.register.url}>
+                            <Button size='large' className='btnLink'>
+                                Sign Up
+                            </Button>
+                        </Link>
+                    </Form.Item>
+                </Form>
+            </Flex>
+        </div>
     )
 }
 

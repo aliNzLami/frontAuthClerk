@@ -46,4 +46,19 @@ export const passwordValidate = (input) => {
             return `Password must contain at least one !@#$%^&*`
         }
     }
-} 
+}
+
+export const phoneValidation = (input) => {
+    if(input === "") {
+        return true;
+    }
+    else {
+        const validRule = /^(?:\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})$/;
+        if(input.match(validRule)) {
+            return true
+        }
+        else {
+            return `Enter a correct phone`
+        }
+    }
+}

@@ -19,7 +19,7 @@ function RegisterForm() {
     const { signUp } = useSignUp();
     const navigate = useNavigate();
 
-    const routesList = useContext(RoutesContext);
+    const { authRoutes, pagesList } = useContext(RoutesContext);
     const [isSent, setIsSent] = useState(false);
 
     const [formItems, setFormItems] = useState(
@@ -114,7 +114,7 @@ function RegisterForm() {
                     toast.error(msg.status);
                     setIsSent(false);
                 }
-                navigate(routesList.dashboard.url);
+                window.location.reload();
                 toast.success('Welcome.');
             })
         } catch (error) {
@@ -164,7 +164,7 @@ function RegisterForm() {
                     </Form.Item>
 
                     <Form.Item>
-                        <Link to={routesList.login.url}>
+                        <Link to={authRoutes.login.url}>
                             <Button size='large' className='btnLink'>
                                 Login
                             </Button>
