@@ -1,53 +1,63 @@
 import React, { useContext, useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
+import { useUser } from '@clerk/clerk-react';
 import './App.css';
-
+import { Spin } from 'antd';
 // ---------------- context
 import { RoutesContext } from './assets/context/RoutesContext';
-import { StatusContext } from './assets/context/StatusContext';
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {
   
     const navigate = useNavigate();
-
+    // const { isSignedIn } = useUser();
+    const isSignedIn  = undefined;
     // ---------------------------- Context ---------------------------- //
     const routesList = useContext(RoutesContext);
-    const { status, prepareStatus } = useContext(StatusContext);
-
 
     // ---------------------------- Functions ---------------------------- //
     const loadPage = () => {
-      if(status === null) {
-        // loading
+      if(isSignedIn === true) {
+        navigate(routesList.dashboard.url);
+        return;
       }
-      else {
-        Object.keys(status).length ? navigate(routesList.dashboard.url) : navigate(routesList.register.url)
+      if(isSignedIn === undefined) {
+        return;
+      }
+      if(isSignedIn === false) {
+        navigate(routesList.register.url);
+        return;
       }
     }
 
     // ---------------------------- Effects ---------------------------- //
     useEffect(() => {
-      prepareStatus();
-    }, [])
-
-    useEffect(() => {
       loadPage()
-    }, [status])
+    }, [isSignedIn])
     
     return (
       <>
-          <Routes>
-            {
-              routesList
-              &&
-              Object.entries(routesList).map( (route) => {
-                return (
-                  <Route key={route[0]} path={route[1].url} element={route[1].element} />
-                )
-              })
-            }
-          </Routes>
+          {
+            isSignedIn === undefined
+            ?
+              <Spin />
+            :
+              <>
+                <Routes>
+                  {
+                    routesList
+                    &&
+                    Object.entries(routesList).map( (route) => {
+                      return (
+                        <Route key={route[0]} path={route[1].url} element={route[1].element} />
+                      )
+                    })
+                  }
+                </Routes>
+                <ToastContainer />
+              </>
+          }
       </>
     );
 }

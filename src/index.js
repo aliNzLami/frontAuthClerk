@@ -5,7 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { HashRouter } from 'react-router-dom';
 import RoutesContextProvider from './assets/context/RoutesContext';
-import StatusContextProvider from './assets/context/StatusContext';
 import { ClerkProvider } from '@clerk/clerk-react'
 
 const PUBLISHABLE_KEY = process.env.REACT_APP_KEY
@@ -19,9 +18,7 @@ root.render(
   <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
     <HashRouter>
       <RoutesContextProvider>
-        <StatusContextProvider>
           <App />
-        </StatusContextProvider>
       </RoutesContextProvider>
     </HashRouter>
   </ClerkProvider>

@@ -1,21 +1,23 @@
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // ---------------- helpers
 import { emailValidate, passwordValidate } from '../../assets/helpers/validation';
 import { useSignUp } from '@clerk/clerk-react';
+import { organiseList_auth } from '../../assets/api/api';
 
 // ---------------- pages
 import { RoutesContext } from '../../assets/context/RoutesContext';
 
 // ---------------- components
 import { Button, Flex, Form, Input, Typography, Spin } from 'antd'
-
+import { toast } from 'react-toastify';
 
 
 function RegisterForm() {
 
-    const { signUp, setActive } = useSignUp();
+    const { signUp } = useSignUp();
+    const navigate = useNavigate();
 
     const routesList = useContext(RoutesContext);
     const [isSent, setIsSent] = useState(false);
@@ -104,19 +106,19 @@ function RegisterForm() {
 
     const sendData = async () => {
         setIsSent(true);
-        const data = {};
-        for(let item of formItems) {
-            data[item.name] = item.value; 
-        }
-
+        const data = organiseList_auth(formItems, 'signUp');
         try {
             await signUp.create(data)
             .then(msg => {
-                console.log(msg);
-                
+                if(msg.status !== 'complete') {
+                    toast.error(msg.status);
+                    setIsSent(false);
+                }
+                navigate(routesList.dashboard.url);
+                toast.success('Welcome.');
             })
         } catch (error) {
-            console.log(error);
+            toast.error('Error occurred.');
             setIsSent(false);
         }
     }
@@ -175,6 +177,3 @@ function RegisterForm() {
 }
 
 export default RegisterForm
-
-
-// 0.6mqy6P_bW8jtrbLcC_qgeXcr-GvnKWydI0EmpocmcP2Ct3FuX0m-k2qW7Vq5EidD9_Qr2hpE_fz6JG3Y-_n9e_0alOYEBqxJd8hdX6SxhbkKsXDUeOltoOihO8rdEcioe_jQCvssHkpn6UWpfmFgB0B4anjwa40tBQnCvwa5huWW2PMu07_LW7o1EQLDPg66veYPWz8eSa_u0w4w1V3HkA7S5TF6AeGEOPU9V2ST796cuKV_dUf5Qm92xchIc66xEQ1O-Uk7aU37KS67aOpOm3QmqsfoH2aSn-YUuITEHO5dGPYeOdUwr64pr8yozzIuhT3-Ekmy7Kq-HbWmzWjJp6q30wXU0b_O9QOSkFYCekfV79VYZtJERrBY-eEythEvSLFlOakdkOSZYtPdegqTSs89d9uYcfv5dOrk6dmpnuOnnE9FYMs-6g10ht8ThL4Fdj7Quk95D80zyboknXozLkV1V2ZuzI25tW3H5N4xaCogOfqJIQM3MWWgSYKI0nHt35KM1AJf1iBkUDlnBNt-igbqgkhlaoRZd9WUUN5yXdyGSzYeTlyIvQnzuHigkeOjbLE2nBqAwf_-z_0OK07ojG2TYKcNo6Fi9C0yLX-rU-FkTt86vnPEawZzv9BJl8AoT2gTRxnue_dH9_A8YBa7WLIr7Rr3VyqdM8COVxzOHtJCeI0ERAbCPmdeV6HjFYVsCIKjR5jNW1GbbPhYRyQE3ytFPrCrc2crMt09omwAs4N1bMxq2gp5ddxOwBt1QQZndjGzkrdl_D-Skau3xjglMVFi__F7MrK-b7wVI3LllY-iwbgOg6t1GYEtWy7-CefuAnQS2N0JmttirlWFykcSYoqca6V4HI38vJbr8HUNFGdHBq5BBW1T21CYPUJHkXy9aZGtTcYI0c8kICB146StvB8wHEAEAtfL2HNu7eE_7mU.YOXXjmBhXxj7NnJ9arhhhQ.56b97ef44c4e1384fda16d875328c6fedbe4da75dd56fa893357cdb3ba2d3942

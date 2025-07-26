@@ -1,16 +1,22 @@
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // ---------------- helpers
 import { emailValidate, passwordValidate } from '../../assets/helpers/validation';
+import { useSignIn } from '@clerk/clerk-react';
+import { organiseList_auth } from '../../assets/api/api';
 
 // ---------------- pages
 import { RoutesContext } from '../../assets/context/RoutesContext';
 
 // ---------------- components
 import { Button, Flex, Form, Input, Typography, Spin } from 'antd'
+import { toast } from 'react-toastify';
 
 function LoginForm() {
+        const { signIn } = useSignIn();
+        const navigate = useNavigate();
+
         const routesList = useContext(RoutesContext);
         const [isSent, setIsSent] = useState(false);
     
@@ -76,9 +82,23 @@ function LoginForm() {
             }
         }
     
-        const sendData = () => {
-            console.log('BACKEND');
+        const sendData = async () => {
             setIsSent(true);
+            const data = organiseList_auth(formItems, 'login');
+            try {
+                await signIn.create(data)
+                .then(msg => {
+                    if(msg.status !== 'complete') {
+                        toast.error(msg.status);
+                        setIsSent(false);
+                    }
+                    navigate(routesList.dashboard.url);
+                    toast.success('Welcome.');
+                })
+            } catch (error) {
+                toast.error('Error occurred.');
+                setIsSent(false);
+            }
         }
 
 

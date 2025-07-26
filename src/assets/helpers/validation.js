@@ -19,7 +19,7 @@ export const passwordValidate = (input) => {
     } 
     else {
         if(input.length < 8) {
-            return 'Password must be at least 5 characters.'
+            return 'Password must be at least 8 characters.'
         }
     
         const char = { list: ["!", "@", "$", "%", "^", "&", "*"], hasChar: false };
