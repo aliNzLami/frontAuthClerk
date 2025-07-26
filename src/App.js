@@ -8,8 +8,9 @@ import { RoutesContext } from './assets/context/RoutesContext';
 import { ToastContainer } from 'react-toastify';
 
 
-// ---------------- PAGES
+// ---------------- context
 import { RoutesContext } from './assets/context/RoutesContext';
+import { StatusContext } from './assets/context/StatusContext';
 
 
 function App() {

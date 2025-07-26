@@ -22,6 +22,30 @@ input::placeholder {
     opacity: 0.5;
 }
 
+/* ------------------------------ GENERAL ------------------------------ */
+
+:root {
+    --main-dark: rgb(19, 20, 24);
+    --main-black: rgb(19, 16, 20);
+    --main-gray: rgb(28, 31, 36);
+    --main-brown: rgb(142, 122, 111);
+}
+
+h1, h2, h3, label, button, strong {
+    color: var(--main-brown) !important;
+}
+
+input {
+    background-color: transparent !important;
+    border: 1px solid var(--main-brown) !important;
+    color: white !important;
+}
+
+input::placeholder {
+    color: var(--main-brown) !important;
+    opacity: 0.5;
+}
+
 body {
     display: flex;
     align-items: center;
