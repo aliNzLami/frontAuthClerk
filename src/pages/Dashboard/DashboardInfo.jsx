@@ -13,6 +13,7 @@ function DashboardInfo() {
         const [isSent, setIsSent] = useState(false);
 
         const signOutHandle = async () => {
+            setIsSent(true);
             try {
                 await signOut()
                 .then(msg => {

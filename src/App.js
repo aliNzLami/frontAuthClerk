@@ -7,12 +7,6 @@ import { Spin } from 'antd';
 import { RoutesContext } from './assets/context/RoutesContext';
 import { ToastContainer } from 'react-toastify';
 
-
-// ---------------- context
-import { RoutesContext } from './assets/context/RoutesContext';
-import { ToastContainer } from 'react-toastify';
-
-
 function App() {
   
     const navigate = useNavigate();
