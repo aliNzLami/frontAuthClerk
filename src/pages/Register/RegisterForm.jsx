@@ -165,7 +165,7 @@ function RegisterForm() {
                     <Form.Item>
                         <Link to={authRoutes?.login?.url??""}>
                             <Button size='large' className='btnLink'>
-                                Login
+                                { isSent ? <Spin /> : "Login" }
                             </Button>
                         </Link>
                     </Form.Item>
