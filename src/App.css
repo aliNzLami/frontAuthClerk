@@ -22,30 +22,6 @@ input::placeholder {
     opacity: 0.5;
 }
 
-/* ------------------------------ GENERAL ------------------------------ */
-
-:root {
-    --main-dark: rgb(19, 20, 24);
-    --main-black: rgb(19, 16, 20);
-    --main-gray: rgb(28, 31, 36);
-    --main-brown: rgb(142, 122, 111);
-}
-
-h1, h2, h3, label, button, strong {
-    color: var(--main-brown) !important;
-}
-
-input {
-    background-color: transparent !important;
-    border: 1px solid var(--main-brown) !important;
-    color: white !important;
-}
-
-input::placeholder {
-    color: var(--main-brown) !important;
-    opacity: 0.5;
-}
-
 body {
     display: flex;
     align-items: center;
@@ -135,7 +111,13 @@ body {
 
 @media (max-width: 500px) {
     .form-container {
-        width: 93vw;
+        width: 400px;
+    }
+}
+
+@media (max-width: 400px) {
+    .form-container {
+        width: 300px;
     }
 }
 
@@ -184,8 +166,8 @@ body {
     }
 
     .authImg {
-        width: 250px;
-        height: 250px;
+        width: 350px;
+        height: 350px;
     }
 
     .formAuthHolder, .formImgHolder {
@@ -194,14 +176,17 @@ body {
 
 }
 
-@media screen and (max-height: 780px) and (max-width: 800px) {
+@media (max-width: 360px) {
     .authImg {
-        width: 100px;
-        height: 100px;
+        width: 300px;
+        height: 300px;
     }
+}
 
-    .formImgHolder {
-        padding-top: 15px;
+@media (max-width: 300px) {
+    .authImg {
+        width: 260px;
+        height: 260px;
     }
 }
 
