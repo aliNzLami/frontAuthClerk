@@ -3,7 +3,7 @@
 ## Live Demo
 https://alinzlami.github.io/frontAuthClerk/#
 
-A fully responsive and minimal **authentication interface** built with **React**, powered by **Clerk** for backend services and user management. The app features smooth Sign Up, Sign In, and Sign Out flows with an UI styled using **Ant Design**.
+A fully responsive and minimal **authentication interface** built with **React**, powered by **Clerk** for backend services and user management. The app features smooth Sign Up, Sign In, and Sign Out flows with an UI styled using **Ant Design**. Tested by **Cypress**
 
 ---
 
@@ -14,7 +14,8 @@ A fully responsive and minimal **authentication interface** built with **React**
 - 📱 Fully responsive design for mobile and desktop
 - 🧠 Form validation with custom logic, handling routes dynamically
 - 👨‍💻 Custom form implementation using Clerk's API
-
+- ✅ Tested by Cpress
+  
 ---
 
 ## 🛠️ Technologies Used
@@ -26,7 +27,7 @@ A fully responsive and minimal **authentication interface** built with **React**
 | Ant Design | UI component library |
 | React Router | Routing between pages |
 | React Creating App | Project scaffolding |
-
+| Test | Cypress |
 ---
 
 ## ⚙️ Getting Started
