@@ -45,29 +45,33 @@ function App() {
                 ?
                   <>
                       <Routes>
-                        {
-                          pagesList
-                          &&
-                          Object.entries(pagesList).map( (route) => {
-                            return (
-                              <Route key={route[0]} path={route[1].url} element={route[1].element} />
-                            )
-                          })
-                        }
+                        <Route key="frontAuthClerk">
+                          {
+                            pagesList
+                            &&
+                            Object.entries(pagesList).map( (route) => {
+                              return (
+                                <Route key={route[0]} path={route[1].url} element={route[1].element} />
+                              )
+                            })
+                          }
+                        </Route>
                     </Routes>
                   </>
                 :
                   <>
                     <Routes>
-                        {
-                          authRoutes
-                          &&
-                          Object.entries(authRoutes).map( (route) => {
-                            return (
-                              <Route key={route[0]} path={route[1].url} element={route[1].element} />
-                            )
-                          })
-                        }
+                      <Route key="frontAuthClerk">
+                          {
+                            authRoutes
+                            &&
+                            Object.entries(authRoutes).map( (route) => {
+                              return (
+                                <Route key={route[0]} path={route[1].url} element={route[1].element} />
+                              )
+                            })
+                          }
+                      </Route>
                     </Routes>
                   </>
           }
