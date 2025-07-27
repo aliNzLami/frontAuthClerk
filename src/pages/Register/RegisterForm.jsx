@@ -125,7 +125,7 @@ function RegisterForm() {
     return (
         <div className="formAuthHolder showSmoothly">
             <Flex vertical flex={1}>
-                <Typography.Title level={3} strong className='title'>
+                <Typography.Title level={3} strong className='title' data-testid='title'>
                     Create an Account
                 </Typography.Title>
                 <Typography.Text type='secondary' strong className='slogan'>
@@ -164,7 +164,7 @@ function RegisterForm() {
 
                     <Form.Item>
                         <Link to={authRoutes?.login?.url??""}>
-                            <Button size='large' className='btnLink'>
+                            <Button size='large' className='btnLink' data-testid="registerPage_loginBtn">
                                 { isSent ? <Spin /> : "Login" }
                             </Button>
                         </Link>

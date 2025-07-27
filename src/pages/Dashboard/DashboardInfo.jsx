@@ -21,11 +21,12 @@ function DashboardInfo() {
                         toast.error(msg.status);
                         setIsSent(false);
                     }
-                    window.location.reload()
+                    window.location.reload();
                 })
               } catch (error) {
                     toast.error('Error occurred.');
                     setIsSent(false);
+                    window.location.reload();
               }
         }
   

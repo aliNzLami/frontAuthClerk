@@ -6,7 +6,7 @@ function SignPicture({ imgSrc }) {
         <div className="formImgHolder showSmoothly_toLeft">
             <Flex justify='center' align='center'>
                 <div className="authImg">
-                    <img src={imgSrc} />
+                    <img data-testid="img" src={imgSrc} />
                 </div>
             </Flex>
         </div>

@@ -5,6 +5,7 @@
     --main-black: rgb(19, 16, 20);
     --main-gray: rgb(28, 31, 36);
     --main-brown: rgb(142, 122, 111);
+    --main-green: rgb(151, 174, 128);
 }
 
 h1, h2, h3, label, button, strong {
@@ -130,7 +131,7 @@ body {
 }
 
 .slogan a {
-    color: var(--main-brown);
+    color: var(--main-green);
     margin-bottom: 20px;
     display: block;
 }
