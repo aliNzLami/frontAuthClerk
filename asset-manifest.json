@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/frontAuthClerk/static/css/main.3886390a.css",
-    "main.js": "/frontAuthClerk/static/js/main.793f48af.js",
+    "main.css": "/frontAuthClerk/static/css/main.ee3f3da5.css",
+    "main.js": "/frontAuthClerk/static/js/main.e4d076fa.js",
     "static/js/453.05d79e5f.chunk.js": "/frontAuthClerk/static/js/453.05d79e5f.chunk.js",
     "static/media/pic1.jpg": "/frontAuthClerk/static/media/pic1.e22693a286f09eaf7975.jpg",
     "static/media/pic2.jpg": "/frontAuthClerk/static/media/pic2.cff25a03509ae409ed4a.jpg",
     "static/media/pic3.jpg": "/frontAuthClerk/static/media/pic3.fdc3540c70524c076079.jpg",
     "index.html": "/frontAuthClerk/index.html",
-    "main.3886390a.css.map": "/frontAuthClerk/static/css/main.3886390a.css.map",
-    "main.793f48af.js.map": "/frontAuthClerk/static/js/main.793f48af.js.map",
+    "main.ee3f3da5.css.map": "/frontAuthClerk/static/css/main.ee3f3da5.css.map",
+    "main.e4d076fa.js.map": "/frontAuthClerk/static/js/main.e4d076fa.js.map",
     "453.05d79e5f.chunk.js.map": "/frontAuthClerk/static/js/453.05d79e5f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3886390a.css",
-    "static/js/main.793f48af.js"
+    "static/css/main.ee3f3da5.css",
+    "static/js/main.e4d076fa.js"
   ]
 }
