@@ -24,6 +24,7 @@ function LoginForm() {
                 {
                     label:'Email', 
                     name:'email', 
+                    test: "email_login",
                     required: true,
                     placeholder:'Enter Your Email',
                     type: "email",
@@ -34,6 +35,7 @@ function LoginForm() {
                 {
                     label:'Password', 
                     name:'password', 
+                    test: "pass_login",
                     required: true,
                     placeholder:'Enter Your Password',
                     type: "password",
@@ -72,7 +74,7 @@ function LoginForm() {
             return false;
         }
     
-        const onFinishHandle = () => {
+        const onFinishHandle = (e) => {
             if(hasError()) {
                 return
             }
@@ -124,6 +126,7 @@ function LoginForm() {
                                         size='large'
                                         defaultValue={item.value}
                                         disabled={isSent}
+                                        data-testid={item.test}
                                     />
                                     {
                                         item.error &&
@@ -136,7 +139,7 @@ function LoginForm() {
                         })
                     }
                     <Form.Item>
-                        <Button type='primary' size='large' className='btnSubmit' disabled={isSent}  onClick={onFinishHandle}>
+                        <Button type='primary' size='large' className='btnSubmit' disabled={isSent}  onClick={onFinishHandle} data-testid='loginPage_loginBtn'>
                             { isSent ? <Spin /> : "Login" }
                         </Button>
                     </Form.Item>

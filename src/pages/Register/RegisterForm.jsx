@@ -157,7 +157,7 @@ function RegisterForm() {
                         })
                     }
                     <Form.Item>
-                        <Button type='primary' size='large' className='btnSubmit' disabled={isSent}  onClick={onFinishHandle}>
+                        <Button type='primary' size='large' className='btnSubmit' disabled={isSent}  onClick={onFinishHandle} data-testid="registerPage_signUpBtn">
                             { isSent ? <Spin /> : "Create Account" }
                         </Button>
                     </Form.Item>
