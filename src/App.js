@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router';
 import { useUser } from '@clerk/clerk-react';
-import './App.css';
 import { Spin } from 'antd';
 // ---------------- context
 import { RoutesContext } from './assets/context/RoutesContext';

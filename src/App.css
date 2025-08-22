@@ -1,5 +1,11 @@
 /* ------------------------------ GENERAL ------------------------------ */
 
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 :root {
     --main-dark: rgb(19, 20, 24);
     --main-black: rgb(19, 16, 20);
@@ -74,7 +80,7 @@ body {
     background-color: red !important;
 }
 
-/* ------------------------------ GENRAL ------------------------------ */
+/* ------------------------------ FORMS ------------------------------ */
 
 .btnSubmit, .btnLink {
     width: 100%;
@@ -193,4 +199,36 @@ body {
 
 .error-text {
     color: red;
+}
+
+/* ------------------------------ SOLAR SYSTEM ------------------------------ */
+
+.SolarSystem canvas {
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+.goToSolarSystem {
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.goToSolarSystem:hover {
+    color: var(--main-green);
+}
+
+.form-container.fadeAway {
+    transform: translateY(-120%);
+    transition: 3s;
+}
+
+.fadeAway .formImgHolder img {
+    transform: translateX(200%) !important;
+    transition: 1.5s !important;
+}
+
+.fadeAway .formAuthHolder .ant-flex {
+    transform: translateX(-200%) !important;
+    transition: 1.5s !important;
 }

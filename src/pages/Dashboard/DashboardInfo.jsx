@@ -1,17 +1,23 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router';
-import { useClerk  } from '@clerk/clerk-react';
+import { useClerk } from '@clerk/clerk-react';
 
 // ---------------- components
 import { Button, Flex, Form, Input, Typography, Spin } from 'antd'
 import { toast } from 'react-toastify';
 
-function DashboardInfo() {
 
+function DashboardInfo({goToSolar}) {
+
+
+        // ---------------------------- Hook ---------------------------- //
         const { signOut } = useClerk();
 
+
+        // ---------------------------- State ---------------------------- //
         const [isSent, setIsSent] = useState(false);
 
+
+        // ---------------------------- Functions ---------------------------- //
         const signOutHandle = async () => {
             setIsSent(true);
             try {
@@ -29,7 +35,6 @@ function DashboardInfo() {
                     window.location.reload();
               }
         }
-  
 
       return (
         <div className="formAuthHolder showSmoothly">
@@ -38,9 +43,9 @@ function DashboardInfo() {
                     Thanks For Joining
                 </Typography.Title>
                 <Typography.Text type='secondary' strong className='slogan'>
-                    <Link to={'https://github.com/aliNzLami'}>
-                        I'd be happty if you look at other projects of mine.
-                    </Link>
+                    <p className='goToSolarSystem' onClick={goToSolar}>
+                        Go to Solar System
+                    </p>
                 </Typography.Text>
 
                 <Form layout='vertical' autoComplete='off'>

@@ -2,6 +2,7 @@ import { createContext } from "react";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import Dashboard from "../../pages/Dashboard/Dashboard";
+import SolarSystem from "../../pages/SolarSystem/SolarSystem";
 
 export const RoutesContext = createContext();
 
@@ -14,6 +15,7 @@ const RoutesContextProvider = (props) => {
 
     const pagesList = {
         dashboard: { url: "/", element: <Dashboard /> },
+        solarSystem: { url: "/solarsystem", element: <SolarSystem /> },
     };
 
     const value = {
