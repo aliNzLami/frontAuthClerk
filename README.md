@@ -1,4 +1,4 @@
-# 🔐 Auth Portal with Clerk
+# 🔐☀️ Auth Portal with Clerk && 3D Solar System
 
 ## Live Demo
 https://alinzlami.github.io/frontAuthClerk/#
@@ -15,6 +15,7 @@ A fully responsive and minimal **authentication interface** built with **React**
 - 🧠 Form validation with custom logic, handling routes dynamically
 - 👨‍💻 Custom form implementation using Clerk's API
 - ✅ Tested by Cpress
+- ☀️△ 3D Solar System via React-Three
   
 ---
 
@@ -28,6 +29,7 @@ A fully responsive and minimal **authentication interface** built with **React**
 | React Router | Routing between pages |
 | React Creating App | Project scaffolding |
 | Test | Cypress |
+| React-Three | 3D Splar System |
 ---
 
 ## ⚙️ Getting Started
