@@ -1,10 +1,17 @@
 import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+// img
 import loginImg from "../../assets/pictures/pic3.jpg";
-import { Card, Flex } from 'antd'
+
+// context
+import { RoutesContext } from '../../assets/context/RoutesContext';
+
+// components
 import SignPicture from '../../assets/components/SignPicture';
 import DashboardInfo from './DashboardInfo';
-import { useNavigate } from 'react-router-dom';
-import { RoutesContext } from '../../assets/context/RoutesContext';
+import { Card, Flex } from 'antd'
+
 
 function Dashboard() {
 
